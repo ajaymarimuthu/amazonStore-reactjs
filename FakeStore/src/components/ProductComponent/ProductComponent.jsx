@@ -8,6 +8,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useSelector } from "react-redux";
 import "./ProductComponent.css"
 import { Link } from "react-router-dom"
+import ProductDetails from '../ProductDetail/ProductDetails';
 
 
 function ProductComponent() {
@@ -54,6 +55,7 @@ function ProductComponent() {
               </Link>
             </Button>
           </CardActions>
+         
         </Card>
      
 
