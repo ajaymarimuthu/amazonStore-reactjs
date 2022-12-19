@@ -9,12 +9,13 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton'; 
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {Link} from "react-router-dom"
+// import { ListItemText } from '@mui/material';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Cart', 'Cart Items:'];
@@ -37,7 +38,9 @@ function Header(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+           {/* {item}  */}
+      
+           <Link style={{textDecoration:"none",color:"black"}} to={`/${item}`}  > {item}</Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -71,7 +74,8 @@ function Header(props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+              {/* {item}  */}
+              <Link style={{textDecoration:"none",color:"white"}} to={`/${item}`}  > {item}</Link>
               </Button>
             ))}
           </Box>

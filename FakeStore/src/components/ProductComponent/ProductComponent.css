@@ -1,0 +1,39 @@
+.productcomponent{
+    display: flex;
+    flex-direction: row  ;
+    flex-wrap: wrap;
+    /* border:3px solid red; */
+    margin: 100px auto;
+ 
+ 
+   
+}
+
+.productcomponent-card{
+    /* border:3px solid yellow; */
+    margin: 2rem;
+    min-width: 300px;
+ 
+}
+
+
+
+ .productcomponent-media{
+    margin-top: 1rem;
+    /* border: 3px solid violet; */
+ 
+}
+
+ 
+
+
+ /*.productcomponent-button{
+    background-color: blue;
+ 
+}
+.productcomponent-button-btn{
+ 
+} */
+
+
+ 

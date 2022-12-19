@@ -5,41 +5,69 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import "./ProductComponent.css"
+import { Link } from "react-router-dom"
 
 
 function ProductComponent() {
 
-    const products=useSelector(state => state.allProducts.product);
-    const{id,title}=products[0];
+  const products = useSelector(state => state.allProducts.products);
+  // const{id,title}=products[0];
 
-    console.log(products);
+  const renderList = products.map((product) => {
+    const { id, title, image, price, category } = product;
+
+    return (
+
+
+     
+        <Card key={id} sx={{ maxWidth: 300 }} className="productcomponent-card">
+          <CardActionArea >
+            <CardMedia
+              className='productcomponent-media'
+
+              component="img"
+              height="250"
+              image={image}
+              sx={{ maxWidth: 190 }}
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {category}
+
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+
+                ${price}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions className='productcomponent-button'>
+            <Button size="small" className='productcomponent-button-btn' >
+            <Link to={`/product/${id}`}  >
+              Add to Cart
+              </Link>
+            </Button>
+          </CardActions>
+        </Card>
+     
+
+
+    )
+  })
+
+  // console.log(products);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-    <CardActionArea>
-      <CardMedia
-        component="img"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button size="small" color="primary">
-        Add to Cart
-      </Button>
-    </CardActions>
-  </Card>
+    <div className='productcomponent'>
+      {renderList}
+
+    </div>
   )
 }
 
